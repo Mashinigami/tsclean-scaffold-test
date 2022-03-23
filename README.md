@@ -1,0 +1,1 @@
+# tsclean-scaffold-test
