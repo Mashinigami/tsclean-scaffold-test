@@ -1,3 +1,18 @@
-export const adapters = [];
-        
-export const services = [];
+import { ADD_USER_REPOSITORY } from "@/domain/models/contracts/add-user-repository";
+import { UserMongooseRepositoryAdapter } from "@/infrastructure/driven-adapters/adapters/orm/mongoose/user-mongoose-repository-adapter";
+import { ADD_USER_SERVICE } from "@/domain/use-cases/add-user-service";
+import { AddUserServiceImpl } from "@/domain/use-cases/impl/add-user-service-impl";
+
+export const adapters = [
+    {
+        provide: ADD_USER_REPOSITORY,
+        useClass: UserMongooseRepositoryAdapter,
+    },
+];
+
+export const services = [
+    {
+        provide: ADD_USER_SERVICE,
+        useClass: AddUserServiceImpl,
+    },
+];
